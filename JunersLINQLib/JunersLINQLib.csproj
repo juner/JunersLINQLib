@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Juners.Linq</RootNamespace>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Disposable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Internal\Disposable.cs" />
+  </ItemGroup>
+
+</Project>
