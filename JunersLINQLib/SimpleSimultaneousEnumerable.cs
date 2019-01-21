@@ -13,10 +13,6 @@ namespace Juners.Linq
     {
         readonly SimultaneousNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
-        public SimpleSimultaneousEnumerable(params IEnumerable<T>[] Items) : this(SimultaneousNotEnough.Break, Items) { }
-        public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, params IEnumerable<T>[] Items)
-            => (this.NotEnough, this.Items) = (NotEnough, Items);
-        public SimpleSimultaneousEnumerable(IEnumerable<IEnumerable<T>> Items) : this(SimultaneousNotEnough.Break, Items) { }
         public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, IEnumerable<IEnumerable<T>> Items)
             => (this.NotEnough, this.Items) = (NotEnough, Items);
 
@@ -29,7 +25,7 @@ namespace Juners.Linq
                 case SimultaneousNotEnough.Default:
                     return GetEnumeratorOrDefault();
             }
-            throw new InvalidOperationException($"{nameof(NotEnough)} is InvalidValue : {NotEnough}");
+            throw new NotSupportedException($"{nameof(NotEnough)}({NotEnough}) is NotSupport");
         }
         IEnumerator<T[]> GetEnumeratorOrBreak()
         {
@@ -69,10 +65,6 @@ namespace Juners.Linq
         readonly Func<T[], TResult> Action;
         readonly SimultaneousNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
-        public SimpleSimultaneousEnumerable(Func<T[], TResult> Action, params IEnumerable<T>[] Items) : this(SimultaneousNotEnough.Break, Action, Items) { }
-        public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, Func<T[], TResult> Action, params IEnumerable<T>[] Items)
-            => (this.NotEnough, this.Action, this.Items) = (NotEnough, Action ?? throw new ArgumentNullException(nameof(Action)), Items);
-        public SimpleSimultaneousEnumerable(Func<T[], TResult> Action, IEnumerable<IEnumerable<T>> Items) : this(SimultaneousNotEnough.Break, Action, Items) { }
         public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, Func<T[], TResult> Action, IEnumerable<IEnumerable<T>> Items)
             => (this.NotEnough, this.Action, this.Items) = (NotEnough, Action ?? throw new ArgumentNullException(nameof(Action)), Items);
 
@@ -85,7 +77,7 @@ namespace Juners.Linq
                 case SimultaneousNotEnough.Default:
                     return GetEnumeratorOrDefault();
             }
-            throw new InvalidOperationException($"{nameof(NotEnough)} is InvalidValue : {NotEnough}");
+            throw new NotSupportedException($"{nameof(NotEnough)}({NotEnough}) is NotSupport.");
         }
         IEnumerator<TResult> GetEnumeratorOrBreak()
         {
