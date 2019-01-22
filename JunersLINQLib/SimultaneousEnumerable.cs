@@ -10,7 +10,7 @@ namespace Juners.Linq
         readonly IEnumerable<T2> Item2;
         readonly SimultaneousNotEnough NotEnough;
         readonly Func<T1, T2, TResult> Action;
-        public SimultaneousEnumerable(IEnumerable<T1> Item1, IEnumerable<T2> Item2, SimultaneousNotEnough NotEnough, Func<T1, T2, TResult> Action)
+        public SimultaneousEnumerable(IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action, SimultaneousNotEnough NotEnough = default)
             => (this.Item1, this.Item2, this.NotEnough, this.Action) = (
             Item1 ?? throw new ArgumentNullException(nameof(Item1))
             , Item2 ?? throw new ArgumentNullException(nameof(Item2))

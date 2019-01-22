@@ -7,36 +7,15 @@ namespace Juners.Linq
     public static class SimultaneousExntensions
     {
         /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が少ない場合は足りなくなった時点で終了する。
-        /// </summary>
-        /// <param name="Item1">一つ目</param>
-        /// <param name="Items">二つ目以降</param>
-        /// <returns></returns>
-        public static IEnumerable<T[]> SimultaneousOrBreak<T>(this IEnumerable<T> Item1, params IEnumerable<T>[] Items)
-            => Simultaneous(Item1, SimultaneousNotEnough.Break, Items);
-        public static IEnumerable<T[]> SimultaneousOrDefault<T>(this IEnumerable<T> Item1, params IEnumerable<T>[] Items)
-            => Simultaneous(Item1, SimultaneousNotEnough.Default, Items);
-        public static IEnumerable<T[]> Simultaneous<T>(this IEnumerable<T> Item1, SimultaneousNotEnough NotEnough, params IEnumerable<T>[] Items)
-            => new SimpleSimultaneousEnumerable<T>(NotEnough, new[] { Item1 }.Concat(Items));
-        /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が少ない場合は足りなくなった時点で終了する。
-        /// </summary>
-        /// <param name="Item1">一つ目の列挙子</param>
-        /// <param name="Items">二つ目以降の列挙子</param>
-        /// <returns></returns>
-        public static IEnumerable<TResult> SimultaneousOrBreak<T, TResult>(this IEnumerable<T> Item1, Func<T[], TResult> Action, params IEnumerable<T>[] Items)
-            => Simultaneous(Item1, SimultaneousNotEnough.Break, Action, Items);
-        /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が少ない場合はdefaultで埋める。
+        /// IEnumerableを並行に合成する。
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="Item1"></param>
-        /// <param name="Action"></param>
-        /// <param name="Items"></param>
+        /// <param name="Item1">合成するIEnumerableの一つ目</param>
+        /// <param name="NotEnough">列挙数が足りない場合の挙動</param>
+        /// <param name="Items">合成するIEnumerableの二つ目以降</param>
         /// <returns></returns>
-        public static IEnumerable<TResult> SimultaneousOrDefault<T, TResult>(this IEnumerable<T> Item1, Func<T[], TResult> Action, params IEnumerable<T>[] Items)
-            => Simultaneous(Item1, SimultaneousNotEnough.Default, Action, Items);
+        public static IEnumerable<T[]> Simultaneous<T>(this IEnumerable<T> Item1, SimultaneousNotEnough NotEnough, params IEnumerable<T>[] Items)
+            => new SimpleSimultaneousEnumerable<T>(NotEnough, new[] { Item1 }.Concat(Items));
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
@@ -50,42 +29,18 @@ namespace Juners.Linq
         public static IEnumerable<TResult> Simultaneous<T, TResult>(this IEnumerable<T> Item1, SimultaneousNotEnough NotEnough, Func<T[], TResult> Action, params IEnumerable<T>[] Items)
             => new SimpleSimultaneousEnumerable<T,TResult>(NotEnough, Action, new[] { Item1 }.Concat(Items));
         /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が少ない場合は足りなくなった時点で終了する。
+        /// IEnumerableを並行に合成する。
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="Item1"></param>
-        /// <param name="Item2"></param>
-        /// <returns></returns>
-        public static IEnumerable<(T1 Item1, T2 Item2)> SimultaneousOrBreak<T1, T2>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2)
-            => SimultaneousOrBreak(Item1, Item2, (v1, v2) => (v1, v2));
-
-        public static IEnumerable<TResult> Simultaneous<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, SimultaneousNotEnough NotEnough, Func<T1, T2, TResult> Action)
-            => new SimultaneousEnumerable<T1, T2, TResult>(Item1, Item2, NotEnough, Action);
-        /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が少ない場合は足りなくなった時点で終了する。
-        /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="Item1"></param>
-        /// <param name="Item2"></param>
+        /// <typeparam name="T1">入力型1</typeparam>
+        /// <typeparam name="T2">入力型2</typeparam>
+        /// <typeparam name="TResult">出力型</typeparam>
+        /// <param name="Item1">一つ目のIEnumerable</param>
+        /// <param name="Item2">二つ目のIEnumerable</param>
+        /// <param name="NotEnough"></param>
         /// <param name="Action"></param>
         /// <returns></returns>
-        public static IEnumerable<TResult> SimultaneousOrBreak<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action)
-            => Simultaneous(Item1, Item2, SimultaneousNotEnough.Break, Action);
-        /// <summary>
-        /// IEnumerableを並行に合成する。列挙数が足りない場合はdefaultで埋める。
-        /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="Item1"></param>
-        /// <param name="Item2"></param>
-        /// <param name="Action"></param>
-        /// <returns></returns>
-        public static IEnumerable<TResult> SimultaneousOrDefault<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action)
-            => Simultaneous(Item1, Item2, SimultaneousNotEnough.Default, Action);
+        public static IEnumerable<TResult> Simultaneous<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action, SimultaneousNotEnough NotEnough = default)
+            => new SimultaneousEnumerable<T1, T2, TResult>(Item1, Item2, Action, NotEnough);
 
         /// <summary>
         /// IEnumerableを並行に合成する。
