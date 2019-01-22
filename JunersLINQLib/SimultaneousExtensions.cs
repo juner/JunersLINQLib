@@ -59,6 +59,9 @@ namespace Juners.Linq
         /// <returns></returns>
         public static IEnumerable<(T1 Item1, T2 Item2)> SimultaneousOrBreak<T1, T2>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2)
             => SimultaneousOrBreak(Item1, Item2, (v1, v2) => (v1, v2));
+
+        public static IEnumerable<TResult> Simultaneous<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, SimultaneousNotEnough NotEnough, Func<T1, T2, TResult> Action)
+            => new SimultaneousEnumerable<T1, T2, TResult>(Item1, Item2, NotEnough, Action);
         /// <summary>
         /// IEnumerableを並行に合成する。列挙数が少ない場合は足りなくなった時点で終了する。
         /// </summary>
@@ -70,15 +73,7 @@ namespace Juners.Linq
         /// <param name="Action"></param>
         /// <returns></returns>
         public static IEnumerable<TResult> SimultaneousOrBreak<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action)
-        {
-            using (var Enumerator1 = Item1?.GetEnumerator() ?? throw new ArgumentNullException(nameof(Item1)))
-            using (var Enumerator2 = Item2?.GetEnumerator() ?? throw new ArgumentNullException(nameof(Item2)))
-                while (Enumerator1.MoveNext()
-                    && Enumerator2.MoveNext())
-                    yield return (Action ?? throw new ArgumentNullException(nameof(Action)))
-                        .Invoke(Enumerator1.Current
-                        , Enumerator2.Current);
-        }
+            => Simultaneous(Item1, Item2, SimultaneousNotEnough.Break, Action);
         /// <summary>
         /// IEnumerableを並行に合成する。列挙数が足りない場合はdefaultで埋める。
         /// </summary>
@@ -90,23 +85,8 @@ namespace Juners.Linq
         /// <param name="Action"></param>
         /// <returns></returns>
         public static IEnumerable<TResult> SimultaneousOrDefault<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action)
-        {
-            using (var Enumerator1 = Item1?.GetEnumerator() ?? throw new ArgumentNullException(nameof(Item1)))
-            using (var Enumerator2 = Item2?.GetEnumerator() ?? throw new ArgumentNullException(nameof(Item2)))
-            {
-                var MoveNext1 = Enumerator1.MoveNext();
-                var MoveNext2 = Enumerator2.MoveNext();
-                while (MoveNext1 || MoveNext2)
-                {
-                    yield return (Action ?? throw new ArgumentNullException(nameof(Action)))
-                        .Invoke(MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default);
-                    MoveNext1 = Enumerator1.MoveNext();
-                    MoveNext2 = Enumerator2.MoveNext();
+            => Simultaneous(Item1, Item2, SimultaneousNotEnough.Default, Action);
 
-                }
-            }
-        }
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
