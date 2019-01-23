@@ -2,29 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Juners.Linq
-{
-    internal class ChunkEnumerable<T> : IEnumerable<IReadOnlyList<T>>
-    {
-        readonly IEnumerable<T> Item;
-        readonly int Chunk;
-        public ChunkEnumerable(int Chunk, IEnumerable<T> Item)
-            => (this.Chunk, this.Item) = (Chunk, Item);
-        public IEnumerator<IReadOnlyList<T>> GetEnumerator()
+namespace Juners.Linq {
+    internal class ChunkEnumerable<T> : IEnumerable<IEnumerable<T>> {
+        readonly IEnumerable<T> Items;
+        readonly int ChunkSize;
+        public ChunkEnumerable(IEnumerable<T> Items, int ChunkSize)
+            => (this.Items, this.ChunkSize) = (Items, ChunkSize);
+        public IEnumerator<IEnumerable<T>> GetEnumerator()
         {
-            var Chunk = new List<T>(this.Chunk);
             var Index = 0;
-            foreach (var i in Item)
-            {
-                Chunk.Add(i);
-                if (++Index % this.Chunk == 0)
-                {
-                    yield return Chunk.AsReadOnly();
-                    Chunk = new List<T>(this.Chunk);
+            var PrevChunk = 0;
+            var Results = new List<T>();
+            foreach (var Item in Items) {
+                var Chunk = Index++ / ChunkSize;
+                if (PrevChunk != Chunk) {
+                    yield return Results.AsReadOnly();
+                    Results = new List<T>();
                 }
+                Results.Add(Item);
             }
-            if (Chunk.Any())
-                yield return Chunk.AsReadOnly();
+            if (Results.Any())
+                yield return Results.AsReadOnly();
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
