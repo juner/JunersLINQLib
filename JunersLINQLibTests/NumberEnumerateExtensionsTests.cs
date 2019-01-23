@@ -538,6 +538,54 @@ namespace Juners.Linq.Tests {
             Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
             CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
         }
+        static IEnumerable<object[]> FigureTestSingleData {
+            get {
+                yield return new object[]
+                {
+                    1f,
+                    10f,
+                    new float []{1 },
+                };
+                yield return new object[]
+                {
+                    0f,
+                    10f,
+                    new float []{0 },
+                };
+                yield return new object[]
+                {
+                    100f,
+                    10f,
+                    new float []{0,0,1 },
+                };
+                yield return new object[]
+                {
+                    100f,
+                    2f,
+                    new float []{0,0,1,0,0,1,1 },
+                };
+                yield return new object[]
+                {
+                    100f,
+                    8f,
+                    new float []{4,4,1},
+                };
+                yield return new object[]
+                {
+                    100f,
+                    16f,
+                    new float []{4, 6},
+                };
+            }
+        }
+        [TestMethod, DynamicData(nameof(FigureTestSingleData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        public void FigureTestSingle(float Number, float Figure, IEnumerable<float> ExpectResults)
+        {
+            Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
+            var Results = Number.Figure(Figure);
+            Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
+            CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
+        }
         static IEnumerable<object[]> FigureTestBigIntegerData {
             get {
                 yield return new object[]
