@@ -9,20 +9,20 @@ namespace Juners.Linq
     /// IEnumerableの合成を行う為のインナークラス
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class SimpleSimultaneousEnumerable<T> : IEnumerable<T[]>
+    internal class SimpleZipEnumerable<T> : IEnumerable<T[]>
     {
-        readonly SimultaneousNotEnough NotEnough;
+        readonly ZipNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
-        public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, IEnumerable<IEnumerable<T>> Items)
+        public SimpleZipEnumerable(ZipNotEnough NotEnough, IEnumerable<IEnumerable<T>> Items)
             => (this.NotEnough, this.Items) = (NotEnough, Items);
 
         public IEnumerator<T[]> GetEnumerator()
         {
             switch (NotEnough)
             {
-                case SimultaneousNotEnough.Break:
+                case ZipNotEnough.Break:
                     return GetEnumeratorOrBreak();
-                case SimultaneousNotEnough.Default:
+                case ZipNotEnough.Default:
                     return GetEnumeratorOrDefault();
             }
             throw new NotSupportedException($"{nameof(NotEnough)}({NotEnough}) is NotSupport");
@@ -60,21 +60,26 @@ namespace Juners.Linq
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
-    internal class SimpleSimultaneousEnumerable<T, TResult> : IEnumerable<TResult>
+    /// <summary>
+    /// IEnumerableの合成を行う為のインナークラス
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
+    internal class SimpleZipEnumerable<T, TResult> : IEnumerable<TResult>
     {
         readonly Func<T[], TResult> Action;
-        readonly SimultaneousNotEnough NotEnough;
+        readonly ZipNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
-        public SimpleSimultaneousEnumerable(SimultaneousNotEnough NotEnough, Func<T[], TResult> Action, IEnumerable<IEnumerable<T>> Items)
+        public SimpleZipEnumerable(ZipNotEnough NotEnough, Func<T[], TResult> Action, IEnumerable<IEnumerable<T>> Items)
             => (this.NotEnough, this.Action, this.Items) = (NotEnough, Action ?? throw new ArgumentNullException(nameof(Action)), Items);
 
         public IEnumerator<TResult> GetEnumerator()
         {
             switch (NotEnough)
             {
-                case SimultaneousNotEnough.Break:
+                case ZipNotEnough.Break:
                     return GetEnumeratorOrBreak();
-                case SimultaneousNotEnough.Default:
+                case ZipNotEnough.Default:
                     return GetEnumeratorOrDefault();
             }
             throw new NotSupportedException($"{nameof(NotEnough)}({NotEnough}) is NotSupport.");
@@ -109,7 +114,6 @@ namespace Juners.Linq
                     Enumerator.Dispose();
             }
         }
-
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

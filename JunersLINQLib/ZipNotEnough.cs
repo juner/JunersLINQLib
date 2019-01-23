@@ -3,7 +3,7 @@
     /// <summary>
     /// 列挙数が足りない時の挙動設定
     /// </summary>
-    public enum SimultaneousNotEnough
+    public enum ZipNotEnough
     {
         /// <summary>
         /// 列挙数が足りない時はその時点で列挙を終了する
