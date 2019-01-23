@@ -5,7 +5,7 @@ using System.Linq;
 namespace Juners.Linq.Tests
 {
     [TestClass]
-    public class SimultaneousTests
+    public class ZipTests
     {
         /// <summary>
         /// 同じ型
