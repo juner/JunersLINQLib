@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Juners.Linq
-{
-    internal class ChunkEnumerable<T> : IEnumerable<IEnumerable<T>>
-    {
+namespace Juners.Linq {
+    internal class ChunkEnumerable<T> : IEnumerable<IEnumerable<T>> {
         readonly IEnumerable<T> Items;
         readonly int ChunkSize;
         public ChunkEnumerable(IEnumerable<T> Items, int ChunkSize)
             => (this.Items, this.ChunkSize) = (Items, ChunkSize);
         public IEnumerator<IEnumerable<T>> GetEnumerator()
         {
-            int Index = 0;
-            int PrevChunk = 0;
+            var Index = 0;
+            var PrevChunk = 0;
             var Results = new List<T>();
-            foreach (var Item in Items)
-            {
+            foreach (var Item in Items) {
                 var Chunk = Index++ / ChunkSize;
-                if (PrevChunk != Chunk)
-                {
+                if (PrevChunk != Chunk) {
                     yield return Results.AsReadOnly();
                     Results = new List<T>();
                 }
