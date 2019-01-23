@@ -155,7 +155,7 @@ namespace Juners.Linq
         /// <param name="Item6"></param>
         /// <param name="NotEnough"></param>
         /// <returns></returns>
-        public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5, T6 Item6)> SimultaneousOrBreak<T1, T2, T3, T4, T5, T6>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, SimultaneousNotEnough NotEnough = default)
+        public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5, T6 Item6)> Simultaneous<T1, T2, T3, T4, T5, T6>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, SimultaneousNotEnough NotEnough = default)
             => Simultaneous(Item1, Item2, Item3, Item4, Item5, Item6, (v1, v2, v3, v4, v5, v6) => (v1, v2, v3, v4, v5, v6), NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
@@ -242,7 +242,7 @@ namespace Juners.Linq
         /// <param name="Item8"></param>
         /// <param name="NotEnough"></param>
         /// <returns></returns>
-        public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5, T6 Item6, T7 Item7, T8 Item8)> SimultaneousOrBreak<T1, T2, T3, T4, T5, T6, T7, T8>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, IEnumerable<T7> Item7, IEnumerable<T8> Item8, SimultaneousNotEnough NotEnough = default)
+        public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5, T6 Item6, T7 Item7, T8 Item8)> Simultaneous<T1, T2, T3, T4, T5, T6, T7, T8>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, IEnumerable<T7> Item7, IEnumerable<T8> Item8, SimultaneousNotEnough NotEnough = default)
             => Simultaneous(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, (v1, v2, v3, v4, v5, v6, v7, v8) => (v1, v2, v3, v4, v5, v6, v7, v8), NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
@@ -293,7 +293,7 @@ namespace Juners.Linq
         /// <param name="NotEnough"></param>
         /// <returns></returns>
         public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5, T6 Item6, T7 Item7, T8 Item8, T9 Item9)> Simultaneous<T1, T2, T3, T4, T5, T6, T7, T8, T9>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, IEnumerable<T7> Item7, IEnumerable<T8> Item8, IEnumerable<T9> Item9, SimultaneousNotEnough NotEnough = default)
-            => SimultaneousOrBreak(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, (v1, v2, v3, v4, v5, v6, v7, v8, v9) => (v1, v2, v3, v4, v5, v6, v7, v8, v9), NotEnough);
+            => Simultaneous(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, (v1, v2, v3, v4, v5, v6, v7, v8, v9) => (v1, v2, v3, v4, v5, v6, v7, v8, v9), NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
@@ -319,7 +319,7 @@ namespace Juners.Linq
         /// <param name="Action"></param>
         /// <param name="NotEnough"></param>
         /// <returns></returns>
-        public static IEnumerable<TResult> SimultaneousOrBreak<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, IEnumerable<T7> Item7, IEnumerable<T8> Item8, IEnumerable<T9> Item9, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> Action, SimultaneousNotEnough NotEnough = default)
+        public static IEnumerable<TResult> Simultaneous<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, IEnumerable<T6> Item6, IEnumerable<T7> Item7, IEnumerable<T8> Item8, IEnumerable<T9> Item9, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> Action, SimultaneousNotEnough NotEnough = default)
             => new SimultaneousEnumerable<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, Action, NotEnough);
     }
 }
