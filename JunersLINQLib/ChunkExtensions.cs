@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace Juners.Linq
-{
-    public static class ChunkExtensions
-    {
+namespace Juners.Linq {
+    public static class ChunkExtensions {
         /// <summary>
         /// IEnumerable を先頭から<paramref name="ChunkSize"/>個ずつに分割する
         /// </summary>

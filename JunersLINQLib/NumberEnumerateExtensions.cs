@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Juners.Linq
-{
-    public static class NumberEnumerateExtensions
-    {
+namespace Juners.Linq {
+    public static class NumberEnumerateExtensions {
         /// <summary>
         /// <paramref name="Figure"/>を元に少ない桁から順番に列挙する
         /// </summary>
@@ -19,8 +17,7 @@ namespace Juners.Linq
                 throw new ArgumentException($"not support {nameof(Figure)}:{Figure} < 2", nameof(Figure));
             if (Self == 0)
                 yield return 0;
-            while (Self > 0)
-            {
+            while (Self > 0) {
                 var Value = Self % Figure;
                 yield return Value;
                 Self = (Self - Value) / Figure;
@@ -38,8 +35,7 @@ namespace Juners.Linq
                 throw new ArgumentException($"not support {nameof(Figure)}:{Figure} < 2", nameof(Figure));
             if (Self == 0)
                 yield return 0;
-            while (Self > 0)
-            {
+            while (Self > 0) {
                 var Value = Self % Figure;
                 yield return Value;
                 Self = (Self - Value) / Figure;
@@ -59,8 +55,7 @@ namespace Juners.Linq
                 throw new ArgumentException($"not support {nameof(Figure)}:{Figure} < 2", nameof(Figure));
             if (Self == 0)
                 yield return 0;
-            while (Self > 0)
-            {
+            while (Self > 0) {
                 var Value = Self % Figure;
                 yield return Value;
                 Self = (Self - Value) / Figure;
@@ -78,8 +73,7 @@ namespace Juners.Linq
                 throw new ArgumentException($"not support {nameof(Figure)}:{Figure} < 2", nameof(Figure));
             if (Self == 0)
                 yield return 0;
-            while (Self > 0)
-            {
+            while (Self > 0) {
                 var Value = Self % Figure;
                 yield return Value;
                 Self = (Self - Value) / Figure;
@@ -97,8 +91,7 @@ namespace Juners.Linq
                 throw new ArgumentException($"not support {nameof(Figure)}:{Figure} < 2", nameof(Figure));
             if (Self == 0)
                 yield return 0;
-            while (Self > 0)
-            {
+            while (Self > 0) {
                 var Value = Self % Figure;
                 yield return Value;
                 Self = (Self - Value) / Figure;

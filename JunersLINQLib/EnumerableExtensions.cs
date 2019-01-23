@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Juners.Linq
-{
-    public static class EnumerableExtensions
-    {
+namespace Juners.Linq {
+    public static class EnumerableExtensions {
         /// <summary>
         /// IEnumerableを <see cref="string.Join{T}(string, IEnumerable{T})"/>する。
         /// </summary>

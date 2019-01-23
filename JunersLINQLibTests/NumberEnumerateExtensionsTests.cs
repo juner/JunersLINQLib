@@ -5,16 +5,12 @@ using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static System.Linq.Enumerable;
 
-namespace Juners.Linq.Tests
-{
+namespace Juners.Linq.Tests {
     [TestClass]
-    public class NumberEnumerateExtensionsTests
-    {
+    public class NumberEnumerateExtensionsTests {
         public static string DynamicDataDisplayName(MethodInfo MethodInfo, object[] Parameters) => TestUtils.DynamicDataDisplayName(MethodInfo, Parameters);
-        static IEnumerable<object[]> FigureTest1Data
-        {
-            get
-            {
+        static IEnumerable<object[]> FigureTest1Data {
+            get {
                 yield return new object[]
                 {
                     1,
@@ -61,10 +57,8 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
             CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
         }
-        static IEnumerable<object[]> FigureTest2Data
-        {
-            get
-            {
+        static IEnumerable<object[]> FigureTest2Data {
+            get {
                 yield return new object[]
                 {
                     1u,
@@ -111,10 +105,8 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
             CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
         }
-        static IEnumerable<object[]> FigureTest3Data
-        {
-            get
-            {
+        static IEnumerable<object[]> FigureTest3Data {
+            get {
                 yield return new object[]
                 {
                     1L,
@@ -161,10 +153,8 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
             CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
         }
-        static IEnumerable<object[]> FigureTest4Data
-        {
-            get
-            {
+        static IEnumerable<object[]> FigureTest4Data {
+            get {
                 yield return new object[]
                 {
                     1uL,
@@ -211,10 +201,8 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Results)}:{Results.ToJoinString(", ")}");
             CollectionAssert.AreEqual(ExpectResults.ToArray(), Results.ToArray());
         }
-        static IEnumerable<object[]> FigureTest5Data
-        {
-            get
-            {
+        static IEnumerable<object[]> FigureTest5Data {
+            get {
                 yield return new object[]
                 {
                     1m,
