@@ -17,7 +17,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(RoopTestData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(RoopTestData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void LoopTest(IEnumerable<object> Item, int Take, IEnumerable<object> ExpectResult)
         {
             Trace.WriteLine($"{nameof(ExpectResult)}:{string.Join(", ", ExpectResult)}");

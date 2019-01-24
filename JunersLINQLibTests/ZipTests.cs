@@ -10,7 +10,7 @@ namespace Juners.Linq.Tests
         /// <summary>
         /// 同じ型
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrBreakTest1()
         {
             var Array1 = new[] { 1, 2, 3, 4};
@@ -21,7 +21,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Array3)}:{string.Join(", ", Array3)}");
             CollectionAssert.AreEqual(ExpectArray3, Array3);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrDefaultTest1()
         {
             var Array1 = new[] { 1, 2, 3, 4 };
@@ -32,7 +32,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Array3)}:{string.Join(", ", Array3)}");
             CollectionAssert.AreEqual(ExpectArray3, Array3);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrBreakTest2()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -43,7 +43,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Array3)}:{string.Join(", ", Array3)}");
             CollectionAssert.AreEqual(ExpectArray3, Array3);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrDefaultTest2()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };

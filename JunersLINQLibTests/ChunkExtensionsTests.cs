@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Juners.Linq.Tests {
     [TestClass]
     public class ChunkExtensionsTests {
-        [TestMethod]
+        [TestMethod,TestCategory("ShortTime")]
         public void ChunkTest()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, };
@@ -26,8 +26,8 @@ namespace Juners.Linq.Tests {
             Trace.WriteLine($"{nameof(Array4)}:[{string.Join(", ", Array4.Select(v => $"[{string.Join(", ", v)}]"))}]");
             Assert.AreEqual($"[{string.Join(", ", ExpectArray4.Select(v => $"[{string.Join(", ", v)}]"))}]", $"[{string.Join(", ", Array4.Select(v => $"[{string.Join(", ", v)}]"))}]");
         }
-        [TestMethod]
-        public async Task ChunkがlongをサポートするかのTest()
+        [TestMethod,TestCategory("LongTime")]
+        public async Task ChunkLongSupportTest()
         {
             await Task.Run(() => {
                 var LongArray1 = Enumerable.Range(0, int.MaxValue).Loop().Take(int.MaxValue + 1L);

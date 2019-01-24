@@ -50,7 +50,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestInt32Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestInt32Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestInt32(int Number, int Figure, IEnumerable<int> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -98,7 +98,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestUInt32Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestUInt32Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestUInt32(uint Number, uint Figure, IEnumerable<uint> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -146,7 +146,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestInt64Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestInt64Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestInt64(long Number, long Figure, IEnumerable<long> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -194,7 +194,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestUInt64Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestUInt64Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestUInt64(ulong Number, ulong Figure, IEnumerable<ulong> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -242,7 +242,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestDecimalData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestDecimalData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestDecimal(decimal Number, decimal Figure, IEnumerable<decimal> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -290,7 +290,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestByteData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestByteData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestByte(byte Number, byte Figure, IEnumerable<byte> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -338,7 +338,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestSByteData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestSByteData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestSByte(sbyte Number, sbyte Figure, IEnumerable<sbyte> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -386,7 +386,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestCharData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestCharData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestChar(char Number, char Figure, IEnumerable<char> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -434,7 +434,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestInt16Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestInt16Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestInt16(short Number, short Figure, IEnumerable<short> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -482,7 +482,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestUInt16Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestUInt16Data), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestUInt16(ushort Number, ushort Figure, IEnumerable<ushort> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -530,7 +530,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestDoubleData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestDoubleData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestDouble(double Number, double Figure, IEnumerable<double> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -578,7 +578,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestSingleData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(FigureTestSingleData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestSingle(float Number, float Figure, IEnumerable<float> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
@@ -626,7 +626,7 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(FigureTestBigIntegerData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        [TestMethod, TestCategory("ShortTime"), TestCategory("ShortTime"), DynamicData(nameof(FigureTestBigIntegerData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
         public void FigureTestBigInteger(BigInteger Number, BigInteger Figure, IEnumerable<BigInteger> ExpectResults)
         {
             Trace.WriteLine($"{nameof(ExpectResults)}:{ExpectResults.ToJoinString(", ")}");
