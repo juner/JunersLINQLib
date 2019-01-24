@@ -7,9 +7,9 @@ namespace Juners.Linq {
     /// 無限ループさせる
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class RoopEnumerable<T> : IEnumerable<T> {
+    internal class LoopEnumerable<T> : IEnumerable<T> {
         readonly IEnumerable<T> Item;
-        public RoopEnumerable(IEnumerable<T> Item)
+        public LoopEnumerable(IEnumerable<T> Item)
             => this.Item = Item ?? throw new ArgumentNullException(nameof(Item));
         public IEnumerator<T> GetEnumerator()
         {
