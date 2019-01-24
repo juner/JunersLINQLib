@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Juners.Enumerable;
 
-namespace Juners.Linq {
+namespace Juners.Enumerable {
     internal class ZipEnumerable<T1, T2, TResult> : IEnumerable<TResult> {
         private readonly IEnumerable<T1> Item1;
         private readonly IEnumerable<T2> Item2;

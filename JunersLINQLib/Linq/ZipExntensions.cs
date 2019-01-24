@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Juners.Enumerable;
 
 namespace Juners.Linq
 {
@@ -41,7 +42,6 @@ namespace Juners.Linq
         /// <returns></returns>
         public static IEnumerable<TResult> Zip<T1, T2, TResult>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, Func<T1, T2, TResult> Action, ZipNotEnough NotEnough = default)
             => new ZipEnumerable<T1, T2, TResult>(Item1, Item2, Action, NotEnough);
-
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>

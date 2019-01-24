@@ -1,4 +1,4 @@
-﻿namespace Juners.Linq
+﻿namespace Juners.Enumerable
 {
     /// <summary>
     /// 列挙数が足りない時の挙動設定

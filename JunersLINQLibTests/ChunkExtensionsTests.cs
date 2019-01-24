@@ -30,7 +30,7 @@ namespace Juners.Linq.Tests {
         public async Task ChunkLongSupportTest()
         {
             await Task.Run(() => {
-                var LongArray1 = Enumerable.Range(0, int.MaxValue).Loop().Take(int.MaxValue + 1L);
+                var LongArray1 = System.Linq.Enumerable.Range(0, int.MaxValue).Loop().Take(int.MaxValue + 1L);
                 foreach (var value in LongArray1.Chunk(10).Select(v => v.ToArray()))
                     ;
             });

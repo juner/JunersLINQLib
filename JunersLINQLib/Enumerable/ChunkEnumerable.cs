@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Juners.Linq {
+namespace Juners.Enumerable {
     internal class ChunkEnumerable<T> : IEnumerable<IEnumerable<T>> {
         readonly IEnumerable<T> Items;
         readonly int ChunkSize;

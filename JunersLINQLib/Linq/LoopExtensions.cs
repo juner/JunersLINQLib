@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Juners.Linq {
-    public static class RoopExtensions {
+    public static class LoopExtensions {
         /// <summary>
         /// 指定された IEnumerable により 無限ループを行う
         /// </summary>

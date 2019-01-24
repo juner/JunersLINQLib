@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Juners.Enumerable;
 
 namespace Juners.Linq {
     public static class ChunkExtensions {
