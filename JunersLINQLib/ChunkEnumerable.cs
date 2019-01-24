@@ -10,18 +10,17 @@ namespace Juners.Linq {
             => (this.Items, this.ChunkSize) = (Items, ChunkSize);
         public IEnumerator<IEnumerable<T>> GetEnumerator()
         {
-            var Index = 0;
-            var PrevChunk = 0;
+            var ChunkCount = ChunkSize;
             var Results = new List<T>();
             foreach (var Item in Items) {
-                var Chunk = Index++ / ChunkSize;
-                if (PrevChunk != Chunk) {
+                Results.Add(Item);
+                if (--ChunkCount <= 0) {
                     yield return Results.AsReadOnly();
                     Results = new List<T>();
+                    ChunkCount = ChunkSize;
                 }
-                Results.Add(Item);
             }
-            if (Results.Any())
+            if (ChunkCount < ChunkSize)
                 yield return Results.AsReadOnly();
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

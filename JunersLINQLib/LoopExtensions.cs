@@ -9,7 +9,7 @@ namespace Juners.Linq {
         /// <typeparam name="T"></typeparam>
         /// <param name="Self"></param>
         /// <returns></returns>
-        public static IEnumerable<T> Roop<T>(this IEnumerable<T> Self)
-            => new RoopEnumerable<T>(Self ?? throw new ArgumentNullException(nameof(Self)));
+        public static IEnumerable<T> Loop<T>(this IEnumerable<T> Self)
+            => new LoopEnumerable<T>(Self ?? throw new ArgumentNullException(nameof(Self)));
     }
 }

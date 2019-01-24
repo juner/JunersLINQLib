@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Juners.Linq.Tests {
     [TestClass]
-    public class RoopExtensionsTests {
+    public class LoopExtensionsTests {
         public static string DynamicDataDisplayName(MethodInfo MethodInfo, object[] Parameters) => TestUtils.DynamicDataDisplayName(MethodInfo, Parameters);
         static IEnumerable<object[]> RoopTestData {
             get {
@@ -17,11 +17,11 @@ namespace Juners.Linq.Tests {
                 };
             }
         }
-        [TestMethod, DynamicData(nameof(RoopTestData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
-        public void RoopTest(IEnumerable<object> Item, int Take, IEnumerable<object> ExpectResult)
+        [TestMethod, TestCategory("ShortTime"), DynamicData(nameof(RoopTestData), DynamicDataDisplayName = nameof(DynamicDataDisplayName))]
+        public void LoopTest(IEnumerable<object> Item, int Take, IEnumerable<object> ExpectResult)
         {
             Trace.WriteLine($"{nameof(ExpectResult)}:{string.Join(", ", ExpectResult)}");
-            var Result = Item.Roop().Take(Take).ToArray();
+            var Result = Item.Loop().Take(Take).ToArray();
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult.ToArray(), Result);
 
