@@ -55,7 +55,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Array3)}:{string.Join(", ", Array3)}");
             CollectionAssert.AreEqual(ExpectArray3, Array3);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrBreakTest3()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -67,7 +67,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult, Result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrDefaultTest3()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -79,7 +79,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult, Result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrBreakTest4()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -92,7 +92,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult, Result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrDefaultTest4()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -105,7 +105,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult, Result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrBreakTest5()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
@@ -119,7 +119,7 @@ namespace Juners.Linq.Tests
             Trace.WriteLine($"{nameof(Result)}:{string.Join(", ", Result)}");
             CollectionAssert.AreEqual(ExpectResult, Result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("ShortTime")]
         public void ZipOrDefaultTest5()
         {
             var Array1 = new[] { 1, 2, 3, 4, 5 };
