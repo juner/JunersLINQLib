@@ -32,6 +32,17 @@ namespace Juners.Linq
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="Item1"></param>
+        /// <param name="Item2"></param>
+        /// <param name="NotEnough"></param>
+        /// <returns></returns>
+        public static IEnumerable<(T1 Item1, T2 Item2)> Zip<T1, T2>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, ZipNotEnough NotEnough = default)
+            => new ZipTupleEnumerable<T1, T2>(Item1, Item2, NotEnough);
+        /// <summary>
+        /// IEnumerableを並行に合成する。
+        /// </summary>
         /// <typeparam name="T1">入力型1</typeparam>
         /// <typeparam name="T2">入力型2</typeparam>
         /// <typeparam name="TResult">出力型</typeparam>
@@ -54,7 +65,7 @@ namespace Juners.Linq
         /// <param name="NotEnough"></param>
         /// <returns></returns>
         public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3)> Zip<T1, T2, T3>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, ZipNotEnough NotEnough = default)
-            => Zip(Item1, Item2, Item3, (v1, v2, v3) => (v1, v2, v3));
+            => new ZipTupleEnumerable<T1, T2, T3>(Item1, Item2, Item3, NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
@@ -84,7 +95,7 @@ namespace Juners.Linq
         /// <param name="NotEnough"></param>
         /// <returns></returns>
         public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4)> Zip<T1, T2, T3, T4>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, ZipNotEnough NotEnough = default)
-            => Zip(Item1, Item2, Item3, Item4, (v1, v2, v3, v4) => (v1, v2, v3, v4), NotEnough);
+            => new ZipTupleEnumerable<T1, T2, T3, T4>(Item1, Item2, Item3, Item4, NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
@@ -118,7 +129,7 @@ namespace Juners.Linq
         /// <param name="NotEnough"></param>
         /// <returns></returns>
         public static IEnumerable<(T1 Item1, T2 Item2, T3 Item3, T4 Item4, T5 Item5)> Zip<T1, T2, T3, T4, T5>(this IEnumerable<T1> Item1, IEnumerable<T2> Item2, IEnumerable<T3> Item3, IEnumerable<T4> Item4, IEnumerable<T5> Item5, ZipNotEnough NotEnough = default)
-            => Zip(Item1, Item2, Item3, Item4, Item5, (v1, v2, v3, v4, v5) => (v1, v2, v3, v4, v5), NotEnough);
+            => new ZipTupleEnumerable<T1, T2, T3, T4, T5>(Item1, Item2, Item3, Item4, Item5, NotEnough);
         /// <summary>
         /// IEnumerableを並行に合成する。
         /// </summary>
