@@ -5,7 +5,7 @@ using Juners.Enumerable;
 
 namespace Juners.Linq
 {
-    public static class ZipExntensions
+    public static class ZipExtensions
     {
         /// <summary>
         /// IEnumerableを並行に合成する。
