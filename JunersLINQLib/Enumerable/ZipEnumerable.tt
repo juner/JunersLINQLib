@@ -1,0 +1,191 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Juners.Enumerable;
+
+namespace Juners.Enumerable {
+<# 
+foreach (var count in Enumerable.Range(2, 16 - 2 + 1))
+{
+	var range = Enumerable.Range(1, count); #>
+    internal class ZipEnumerable<<#
+	foreach (var i in range)
+	{
+		#>T<#= i #>, <#
+	} #>TResult> : IEnumerable<TResult> {
+<# 
+	foreach(var i in range)
+	{ #>
+        readonly IEnumerable<T<#= i #>> Item<#= i #>;
+<# } #>
+        readonly ZipNotEnough NotEnough;
+        readonly Func<<#
+	foreach (var i in range)
+	{
+		#>T<#= i #>, <#
+	} #>TResult> Action;
+        public ZipEnumerable(<#
+	foreach (var i in range)
+	{
+		if (i > 1)
+		{ #>
+
+            , <#
+		}
+		#>IEnumerable<T<#= i #>> Item<#= i #><#
+	} #>
+
+            , Func<<#
+	foreach (var i in range)
+	{
+		#>T<#= i #>, <#
+	} #>TResult> Action, ZipNotEnough NotEnough = default)
+            => (<#
+	foreach (var i in range)
+	{
+		if (i > 1)
+		{ #>
+
+            , <#
+		}
+		#>this.Item<#= i #><#
+	} #>
+
+            , this.Action
+            , this.NotEnough) = (
+                <#
+	foreach (var i in range)
+	{
+		if (i > 1)
+		{
+			#>
+
+                , <#
+		}
+			#>Item<#= i #> ?? throw new ArgumentNullException(nameof(Item<#= i #>))<#
+	} #>
+
+                , Action ?? throw new ArgumentNullException(nameof(Action))
+                , NotEnough);
+        public IEnumerator<TResult> GetEnumerator()
+        {
+            switch (NotEnough) {
+            case ZipNotEnough.Break:
+                return GetEnumeratorOrBreak();
+            case ZipNotEnough.Default:
+                return GetEnumeratorOrDefault();
+            }
+            throw new NotSupportedException($"{nameof(NotEnough)}({NotEnough}) is NotSupport.");
+        }
+
+        private IEnumerator<TResult> GetEnumeratorOrBreak()
+        {<#
+	foreach (var i in range)
+	{ #>
+
+            using (var Enumerator<#= i #> = Item<#= i #>?.GetEnumerator())<#
+	} #>
+
+                while (<#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                    && <#
+		}
+		#>Enumerator<#= i #>.MoveNext()<#
+	} #>)
+                    yield return Action
+                        .Invoke(<#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                        , <#
+		}
+		#>Enumerator<#= i #>.Current<# 
+	} #>);
+        }
+        private IEnumerator<TResult> GetEnumeratorOrDefault()
+        {<#
+	foreach (var i in range)
+	{
+			#>
+
+            using (var Enumerator<#= i #> = Item<#= i #>.GetEnumerator())<#
+	} #>
+
+                for (var (<#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                    , <#
+		}
+		#>MoveNext<#= i #><#
+	} #>) = (
+                        <#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                        , <#
+		}
+		#>Enumerator<#= i #>.MoveNext()<#
+	} #>);
+                    <#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                    || <#
+		}
+		#>MoveNext<#= i #><#
+	} #>;
+                    (<#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                    , <#
+		}
+		#>MoveNext<#= i #><#
+	} #>) = (
+                        <#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                        , <#
+		}
+		#>Enumerator<#= i #>.MoveNext()<#
+	} #>))
+                    yield return Action
+                        .Invoke(<#
+	foreach (var i in range)
+	{
+		if (i != 1) 
+		{ #>
+
+                        , <#
+		}
+		#>MoveNext<#= i #> ? Enumerator<#= i #>.Current : default<# 
+	} #>);
+        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+<# } #>
+}

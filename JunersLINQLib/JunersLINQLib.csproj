@@ -14,4 +14,41 @@
     <None Include="Internal\Disposable.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Enumerable\ZipEnumerable.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZipEnumerable.cs</LastGenOutput>
+    </None>
+    <None Update="Enumerable\ZipTupleEnumerable.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZipTupleEnumerable.cs</LastGenOutput>
+    </None>
+    <None Update="Linq\ZipExtensions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZipExtensions.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Enumerable\ZipEnumerable.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ZipEnumerable.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Enumerable\ZipTupleEnumerable.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ZipTupleEnumerable.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Linq\ZipExtensions.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ZipExtensions.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

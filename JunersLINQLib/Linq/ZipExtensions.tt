@@ -1,0 +1,167 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>using System;
+using System.Collections.Generic;
+using System.Linq;
+using Juners.Enumerable;
+
+namespace Juners.Linq
+{
+    public static class ZipExntensions
+    {
+        /// <summary>
+        /// IEnumerableを並行に合成する。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Item1">合成するIEnumerableの一つ目</param>
+        /// <param name="NotEnough">列挙数が足りない場合の挙動</param>
+        /// <param name="Items">合成するIEnumerableの二つ目以降</param>
+        /// <returns></returns>
+        public static IEnumerable<T[]> Zip<T>(this IEnumerable<T> Item1, ZipNotEnough NotEnough, params IEnumerable<T>[] Items)
+            => new SimpleZipEnumerable<T>(NotEnough, new[] { Item1 }.Concat(Items));
+        /// <summary>
+        /// IEnumerableを並行に合成する。
+        /// </summary>
+        /// <typeparam name="T">入力型</typeparam>
+        /// <typeparam name="TResult">出力型</typeparam>
+        /// <param name="Item1">一つ目のIEnumerable</param>
+        /// <param name="NotEnough">列挙数が足りない時の挙動設定</param>
+        /// <param name="Action">出力型への変換用関数</param>
+        /// <param name="Items">二つ目以降のIEnumerable</param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> Zip<T, TResult>(this IEnumerable<T> Item1, ZipNotEnough NotEnough, Func<T[], TResult> Action, params IEnumerable<T>[] Items)
+            => new SimpleZipEnumerable<T, TResult>(NotEnough, Action, new[] { Item1 }.Concat(Items));
+<# foreach (var count in Enumerable.Range(2, 21 - 2 + 1))
+{
+	var range = Enumerable.Range(1, count); #>
+        /// <summary>
+        /// IEnumerableを並行に合成する。
+        /// </summary><#
+	foreach (var i in range) 
+	{ #>
+
+        /// <typeparam name="T<#= i #>"></typeparam><#
+	} #><#
+	foreach (var i in range) 
+	{ #>
+
+        /// <param name="Item<#= i #>"></param><#
+	} #>
+
+        /// <param name="NotEnough"></param>
+        /// <returns></returns>
+        public static IEnumerable<(<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #> Item<#= i #><#
+	} #>)> Zip<<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #><#
+	} #>>(this <#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>IEnumerable<T<#= i #>> Item<#= i #><#
+	} #>, ZipNotEnough NotEnough = default)
+            => new ZipTupleEnumerable<<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #><#
+	} #>>(<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>Item<#= i #><#
+	} #>, NotEnough);
+<# } #>
+        
+<# foreach (var count in Enumerable.Range(2, 16 - 2 + 1))
+{
+	var range = Enumerable.Range(1, count); #>
+        /// <summary>
+        /// IEnumerableを並行に合成する。
+        /// </summary><#
+	foreach (var i in range) 
+	{ #>
+
+		/// <typeparam name="T<#= i #>"></typeparam><#
+	} #>
+
+        /// <typeparam name="TResult">出力型</typeparam>
+	<#
+	foreach (var i in range) 
+	{ #>
+
+        /// <param name="Item<#= i #>"></param><#
+	} #>
+
+        /// <param name="Action"></param>
+        /// <param name="NotEnough"></param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> Zip<<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #><#
+	} #>, TResult>(this <#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>IEnumerable<T<#= i #>> Item<#= i #><#
+	} #>, Func<<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #><#
+	} #>, TResult> Action, ZipNotEnough NotEnough = default)
+            => new ZipEnumerable<<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>T<#= i #><#
+	} #>, TResult>(<#
+	foreach (var i in range) 
+	{
+		if (i > 1)
+		{
+			#>, <#
+		}
+		#>Item<#= i #><#
+	} #>, Action, NotEnough);
+<# } #>
+	}
+}
