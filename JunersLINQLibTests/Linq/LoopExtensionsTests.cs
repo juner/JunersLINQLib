@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Juners.Tests;
 
 namespace Juners.Linq.Tests {
     [TestClass]

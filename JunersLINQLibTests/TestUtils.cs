@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using static System.Linq.Enumerable;
 
-namespace Juners.Linq.Tests {
+namespace Juners.Tests {
     internal static class TestUtils {
         public static string DynamicDataDisplayName(MethodInfo MethodInfo, object[] Parameters)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Juners.Tests;
 using static System.Linq.Enumerable;
 
 namespace Juners.Linq.Tests {
