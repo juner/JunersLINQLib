@@ -7,7 +7,7 @@ namespace Juners.Linq.Internal
 {
     internal class Disposable : IDisposable
     {
-        Action Action = null;
+        Action? Action = null;
         Disposable(Action Action) => this.Action = Action ?? throw new ArgumentNullException(nameof(Action));
 		public static IDisposable Create(Action Action) => new Disposable(Action);
         public override string ToString()
