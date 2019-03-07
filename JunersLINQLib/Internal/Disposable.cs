@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Juners.Linq.Internal
 {
     internal class Disposable : IDisposable
     {
-        Action Action;
+        Action Action = null;
         Disposable(Action Action) => this.Action = Action ?? throw new ArgumentNullException(nameof(Action));
 		public static IDisposable Create(Action Action) => new Disposable(Action);
+        public override string ToString()
+            => $"{nameof(Disposable)}("
+            + string.Join(", ",new[] {
+                Action == null ? $"IsDispose:{true}" : null,
+            }.OfType<string>()) + ")";
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (Action != null)
             {
-                if (disposing)
-                {
-                    Action();
-                }
-                disposedValue = true;
+                Action?.Invoke();
+                Action = null;
             }
         }
         public void Dispose() => Dispose(true);
