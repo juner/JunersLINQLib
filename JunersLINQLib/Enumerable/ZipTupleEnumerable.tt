@@ -131,6 +131,13 @@ foreach (var count in Enumerable.Range(2, 21 - 2 + 1))
 	{
 			#>
 
+            var DefaultValue<#= i #> = default(T<#= i #>);<#
+	} #>
+	<#
+	foreach (var i in range)
+	{
+			#>
+
             using (var Enumerator<#= i #> = Item<#= i #>.GetEnumerator())<#
 	} #>
 
@@ -192,7 +199,7 @@ foreach (var count in Enumerable.Range(2, 21 - 2 + 1))
 
                         , <#
 		}
-		#>MoveNext<#= i #> ? Enumerator<#= i #>.Current : default<# 
+		#>MoveNext<#= i #> ? Enumerator<#= i #>.Current : DefaultValue<#= i #><# 
 	} #>);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

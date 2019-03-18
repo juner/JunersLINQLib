@@ -36,6 +36,8 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
                 for (var (MoveNext1
@@ -48,8 +50,8 @@ namespace Juners.Enumerable {
                     , MoveNext2) = (
                         Enumerator1.MoveNext()
                         , Enumerator2.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -91,6 +93,9 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -109,9 +114,9 @@ namespace Juners.Enumerable {
                         Enumerator1.MoveNext()
                         , Enumerator2.MoveNext()
                         , Enumerator3.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -158,6 +163,10 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -182,10 +191,10 @@ namespace Juners.Enumerable {
                         , Enumerator2.MoveNext()
                         , Enumerator3.MoveNext()
                         , Enumerator4.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -237,6 +246,11 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -267,11 +281,11 @@ namespace Juners.Enumerable {
                         , Enumerator3.MoveNext()
                         , Enumerator4.MoveNext()
                         , Enumerator5.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -328,6 +342,12 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -364,12 +384,12 @@ namespace Juners.Enumerable {
                         , Enumerator4.MoveNext()
                         , Enumerator5.MoveNext()
                         , Enumerator6.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -431,6 +451,13 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -473,13 +500,13 @@ namespace Juners.Enumerable {
                         , Enumerator5.MoveNext()
                         , Enumerator6.MoveNext()
                         , Enumerator7.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -546,6 +573,14 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -594,14 +629,14 @@ namespace Juners.Enumerable {
                         , Enumerator6.MoveNext()
                         , Enumerator7.MoveNext()
                         , Enumerator8.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -673,6 +708,15 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -727,15 +771,15 @@ namespace Juners.Enumerable {
                         , Enumerator7.MoveNext()
                         , Enumerator8.MoveNext()
                         , Enumerator9.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -812,6 +856,16 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -872,16 +926,16 @@ namespace Juners.Enumerable {
                         , Enumerator8.MoveNext()
                         , Enumerator9.MoveNext()
                         , Enumerator10.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -963,6 +1017,17 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1029,17 +1094,17 @@ namespace Juners.Enumerable {
                         , Enumerator9.MoveNext()
                         , Enumerator10.MoveNext()
                         , Enumerator11.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -1126,6 +1191,18 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1198,18 +1275,18 @@ namespace Juners.Enumerable {
                         , Enumerator10.MoveNext()
                         , Enumerator11.MoveNext()
                         , Enumerator12.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -1301,6 +1378,19 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1379,19 +1469,19 @@ namespace Juners.Enumerable {
                         , Enumerator11.MoveNext()
                         , Enumerator12.MoveNext()
                         , Enumerator13.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -1488,6 +1578,20 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1572,20 +1676,20 @@ namespace Juners.Enumerable {
                         , Enumerator12.MoveNext()
                         , Enumerator13.MoveNext()
                         , Enumerator14.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -1687,6 +1791,21 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1777,21 +1896,21 @@ namespace Juners.Enumerable {
                         , Enumerator13.MoveNext()
                         , Enumerator14.MoveNext()
                         , Enumerator15.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -1898,6 +2017,22 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1994,22 +2129,22 @@ namespace Juners.Enumerable {
                         , Enumerator14.MoveNext()
                         , Enumerator15.MoveNext()
                         , Enumerator16.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -2121,6 +2256,23 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);
+            var DefaultValue17 = default(T17);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2223,23 +2375,23 @@ namespace Juners.Enumerable {
                         , Enumerator15.MoveNext()
                         , Enumerator16.MoveNext()
                         , Enumerator17.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default
-                        , MoveNext17 ? Enumerator17.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16
+                        , MoveNext17 ? Enumerator17.Current : DefaultValue17);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -2356,6 +2508,24 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);
+            var DefaultValue17 = default(T17);
+            var DefaultValue18 = default(T18);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2464,24 +2634,24 @@ namespace Juners.Enumerable {
                         , Enumerator16.MoveNext()
                         , Enumerator17.MoveNext()
                         , Enumerator18.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default
-                        , MoveNext17 ? Enumerator17.Current : default
-                        , MoveNext18 ? Enumerator18.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16
+                        , MoveNext17 ? Enumerator17.Current : DefaultValue17
+                        , MoveNext18 ? Enumerator18.Current : DefaultValue18);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -2603,6 +2773,25 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);
+            var DefaultValue17 = default(T17);
+            var DefaultValue18 = default(T18);
+            var DefaultValue19 = default(T19);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2717,25 +2906,25 @@ namespace Juners.Enumerable {
                         , Enumerator17.MoveNext()
                         , Enumerator18.MoveNext()
                         , Enumerator19.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default
-                        , MoveNext17 ? Enumerator17.Current : default
-                        , MoveNext18 ? Enumerator18.Current : default
-                        , MoveNext19 ? Enumerator19.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16
+                        , MoveNext17 ? Enumerator17.Current : DefaultValue17
+                        , MoveNext18 ? Enumerator18.Current : DefaultValue18
+                        , MoveNext19 ? Enumerator19.Current : DefaultValue19);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -2862,6 +3051,26 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);
+            var DefaultValue17 = default(T17);
+            var DefaultValue18 = default(T18);
+            var DefaultValue19 = default(T19);
+            var DefaultValue20 = default(T20);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2982,26 +3191,26 @@ namespace Juners.Enumerable {
                         , Enumerator18.MoveNext()
                         , Enumerator19.MoveNext()
                         , Enumerator20.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default
-                        , MoveNext17 ? Enumerator17.Current : default
-                        , MoveNext18 ? Enumerator18.Current : default
-                        , MoveNext19 ? Enumerator19.Current : default
-                        , MoveNext20 ? Enumerator20.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16
+                        , MoveNext17 ? Enumerator17.Current : DefaultValue17
+                        , MoveNext18 ? Enumerator18.Current : DefaultValue18
+                        , MoveNext19 ? Enumerator19.Current : DefaultValue19
+                        , MoveNext20 ? Enumerator20.Current : DefaultValue20);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
@@ -3133,6 +3342,27 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21)> GetEnumeratorOrDefault()
         {
+            var DefaultValue1 = default(T1);
+            var DefaultValue2 = default(T2);
+            var DefaultValue3 = default(T3);
+            var DefaultValue4 = default(T4);
+            var DefaultValue5 = default(T5);
+            var DefaultValue6 = default(T6);
+            var DefaultValue7 = default(T7);
+            var DefaultValue8 = default(T8);
+            var DefaultValue9 = default(T9);
+            var DefaultValue10 = default(T10);
+            var DefaultValue11 = default(T11);
+            var DefaultValue12 = default(T12);
+            var DefaultValue13 = default(T13);
+            var DefaultValue14 = default(T14);
+            var DefaultValue15 = default(T15);
+            var DefaultValue16 = default(T16);
+            var DefaultValue17 = default(T17);
+            var DefaultValue18 = default(T18);
+            var DefaultValue19 = default(T19);
+            var DefaultValue20 = default(T20);
+            var DefaultValue21 = default(T21);	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -3259,27 +3489,27 @@ namespace Juners.Enumerable {
                         , Enumerator19.MoveNext()
                         , Enumerator20.MoveNext()
                         , Enumerator21.MoveNext()))
-                    yield return (MoveNext1 ? Enumerator1.Current : default
-                        , MoveNext2 ? Enumerator2.Current : default
-                        , MoveNext3 ? Enumerator3.Current : default
-                        , MoveNext4 ? Enumerator4.Current : default
-                        , MoveNext5 ? Enumerator5.Current : default
-                        , MoveNext6 ? Enumerator6.Current : default
-                        , MoveNext7 ? Enumerator7.Current : default
-                        , MoveNext8 ? Enumerator8.Current : default
-                        , MoveNext9 ? Enumerator9.Current : default
-                        , MoveNext10 ? Enumerator10.Current : default
-                        , MoveNext11 ? Enumerator11.Current : default
-                        , MoveNext12 ? Enumerator12.Current : default
-                        , MoveNext13 ? Enumerator13.Current : default
-                        , MoveNext14 ? Enumerator14.Current : default
-                        , MoveNext15 ? Enumerator15.Current : default
-                        , MoveNext16 ? Enumerator16.Current : default
-                        , MoveNext17 ? Enumerator17.Current : default
-                        , MoveNext18 ? Enumerator18.Current : default
-                        , MoveNext19 ? Enumerator19.Current : default
-                        , MoveNext20 ? Enumerator20.Current : default
-                        , MoveNext21 ? Enumerator21.Current : default);
+                    yield return (MoveNext1 ? Enumerator1.Current : DefaultValue1
+                        , MoveNext2 ? Enumerator2.Current : DefaultValue2
+                        , MoveNext3 ? Enumerator3.Current : DefaultValue3
+                        , MoveNext4 ? Enumerator4.Current : DefaultValue4
+                        , MoveNext5 ? Enumerator5.Current : DefaultValue5
+                        , MoveNext6 ? Enumerator6.Current : DefaultValue6
+                        , MoveNext7 ? Enumerator7.Current : DefaultValue7
+                        , MoveNext8 ? Enumerator8.Current : DefaultValue8
+                        , MoveNext9 ? Enumerator9.Current : DefaultValue9
+                        , MoveNext10 ? Enumerator10.Current : DefaultValue10
+                        , MoveNext11 ? Enumerator11.Current : DefaultValue11
+                        , MoveNext12 ? Enumerator12.Current : DefaultValue12
+                        , MoveNext13 ? Enumerator13.Current : DefaultValue13
+                        , MoveNext14 ? Enumerator14.Current : DefaultValue14
+                        , MoveNext15 ? Enumerator15.Current : DefaultValue15
+                        , MoveNext16 ? Enumerator16.Current : DefaultValue16
+                        , MoveNext17 ? Enumerator17.Current : DefaultValue17
+                        , MoveNext18 ? Enumerator18.Current : DefaultValue18
+                        , MoveNext19 ? Enumerator19.Current : DefaultValue19
+                        , MoveNext20 ? Enumerator20.Current : DefaultValue20
+                        , MoveNext21 ? Enumerator21.Current : DefaultValue21);
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics.Contracts;
 
 namespace Juners.Enumerable
 {
@@ -13,8 +14,16 @@ namespace Juners.Enumerable
     {
         readonly ZipNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
+        public SimpleZipEnumerable(params IEnumerable<T>[] Items) : this((IEnumerable<IEnumerable<T>>)Items) { }
+        public SimpleZipEnumerable(ZipNotEnough NotEnough, params IEnumerable<T>[] Items) : this(NotEnough, (IEnumerable<IEnumerable<T>>)Items) { }
+        public SimpleZipEnumerable(IEnumerable<IEnumerable<T>> Items) : this(ZipNotEnough.Break, Items) { }
         public SimpleZipEnumerable(ZipNotEnough NotEnough, IEnumerable<IEnumerable<T>> Items)
-            => (this.NotEnough, this.Items) = (NotEnough, Items);
+        {
+            Contract.Requires<ArgumentOutOfRangeException>(NotEnough == ZipNotEnough.Break || NotEnough == ZipNotEnough.Default);
+            Contract.Requires<ArgumentNullException>(Items != null);
+            Contract.Requires<ArgumentException>(Items.All(v => v is IEnumerable<T>));
+            (this.NotEnough, this.Items) = (NotEnough, Items);
+        }
 
         public IEnumerator<T[]> GetEnumerator()
         {
@@ -47,9 +56,10 @@ namespace Juners.Enumerable
             var Enumerators = Items.Select(v => v.GetEnumerator()).ToArray();
             try
             {
+                var defaultValue = default(T);
                 var MoveNext = new bool[Enumerators.Length];
                 while (Enumerators.Where((v, i) => MoveNext[i] = v.MoveNext()).Count() > 0)
-                    yield return Enumerators.Select((v, i) => MoveNext[i] ? v.Current : default).ToArray();
+                    yield return Enumerators.Select((v, i) => MoveNext[i] ? v.Current : defaultValue).ToArray();
             }
             finally
             {
@@ -71,7 +81,13 @@ namespace Juners.Enumerable
         readonly ZipNotEnough NotEnough;
         readonly IEnumerable<IEnumerable<T>> Items;
         public SimpleZipEnumerable(ZipNotEnough NotEnough, Func<T[], TResult> Action, IEnumerable<IEnumerable<T>> Items)
-            => (this.NotEnough, this.Action, this.Items) = (NotEnough, Action ?? throw new ArgumentNullException(nameof(Action)), Items);
+        {
+            Contract.Requires<ArgumentOutOfRangeException>(NotEnough == ZipNotEnough.Break || NotEnough == ZipNotEnough.Default);
+            Contract.Requires<ArgumentNullException>(Action != null);
+            Contract.Requires<ArgumentException>(Items.All(v => v is IEnumerable<T>));
+            (this.NotEnough, this.Action, this.Items) = (NotEnough, Action, Items);
+
+        }
 
         public IEnumerator<TResult> GetEnumerator()
         {
@@ -104,9 +120,10 @@ namespace Juners.Enumerable
             var Enumerators = Items.Select(v => v.GetEnumerator()).ToArray();
             try
             {
+                var dfaultValue = default(T);
                 var MoveNext = new bool[Enumerators.Length];
                 while (Enumerators.Where((v, i) => MoveNext[i] = v.MoveNext()).Count() > 0)
-                    yield return Action.Invoke(Enumerators.Select((v, i) => MoveNext[i] ? v.Current : default).ToArray());
+                    yield return Action.Invoke(Enumerators.Select((v, i) => MoveNext[i] ? v.Current : dfaultValue).ToArray());
             }
             finally
             {
