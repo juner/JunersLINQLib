@@ -43,8 +43,8 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
                 for (var (MoveNext1
@@ -109,9 +109,9 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -190,10 +190,10 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -286,11 +286,11 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -397,12 +397,12 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -523,13 +523,13 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -664,14 +664,14 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -820,15 +820,15 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -991,16 +991,16 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1177,17 +1177,17 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1378,18 +1378,18 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);
-			var DefaultValue12 = default(T12);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;
+			var DefaultValue12 = default(T12)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1594,19 +1594,19 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);
-			var DefaultValue12 = default(T12);
-			var DefaultValue13 = default(T13);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;
+			var DefaultValue12 = default(T12)!;
+			var DefaultValue13 = default(T13)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -1825,20 +1825,20 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);
-			var DefaultValue12 = default(T12);
-			var DefaultValue13 = default(T13);
-			var DefaultValue14 = default(T14);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;
+			var DefaultValue12 = default(T12)!;
+			var DefaultValue13 = default(T13)!;
+			var DefaultValue14 = default(T14)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2071,21 +2071,21 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);
-			var DefaultValue12 = default(T12);
-			var DefaultValue13 = default(T13);
-			var DefaultValue14 = default(T14);
-			var DefaultValue15 = default(T15);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;
+			var DefaultValue12 = default(T12)!;
+			var DefaultValue13 = default(T13)!;
+			var DefaultValue14 = default(T14)!;
+			var DefaultValue15 = default(T15)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
@@ -2332,22 +2332,22 @@ namespace Juners.Enumerable {
         }
         private IEnumerator<TResult> GetEnumeratorOrDefault()
         {
-			var DefaultValue1 = default(T1);
-			var DefaultValue2 = default(T2);
-			var DefaultValue3 = default(T3);
-			var DefaultValue4 = default(T4);
-			var DefaultValue5 = default(T5);
-			var DefaultValue6 = default(T6);
-			var DefaultValue7 = default(T7);
-			var DefaultValue8 = default(T8);
-			var DefaultValue9 = default(T9);
-			var DefaultValue10 = default(T10);
-			var DefaultValue11 = default(T11);
-			var DefaultValue12 = default(T12);
-			var DefaultValue13 = default(T13);
-			var DefaultValue14 = default(T14);
-			var DefaultValue15 = default(T15);
-			var DefaultValue16 = default(T16);	
+			var DefaultValue1 = default(T1)!;
+			var DefaultValue2 = default(T2)!;
+			var DefaultValue3 = default(T3)!;
+			var DefaultValue4 = default(T4)!;
+			var DefaultValue5 = default(T5)!;
+			var DefaultValue6 = default(T6)!;
+			var DefaultValue7 = default(T7)!;
+			var DefaultValue8 = default(T8)!;
+			var DefaultValue9 = default(T9)!;
+			var DefaultValue10 = default(T10)!;
+			var DefaultValue11 = default(T11)!;
+			var DefaultValue12 = default(T12)!;
+			var DefaultValue13 = default(T13)!;
+			var DefaultValue14 = default(T14)!;
+			var DefaultValue15 = default(T15)!;
+			var DefaultValue16 = default(T16)!;	
             using (var Enumerator1 = Item1.GetEnumerator())
             using (var Enumerator2 = Item2.GetEnumerator())
             using (var Enumerator3 = Item3.GetEnumerator())
